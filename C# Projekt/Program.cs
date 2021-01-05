@@ -1,0 +1,293 @@
+﻿using System;
+
+
+namespace p
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int alternativ = 0;
+            do
+            {
+                Boolean tryAgain = false;
+
+                Console.WriteLine("\n Hej välkommen :)");
+                Console.WriteLine("-----------------------");
+                Console.WriteLine("[1] Omvandla mellan Fahrenheit/Celsius/Kelvin.");
+                Console.WriteLine("[2] Räkna ut hastighet, tid i minuter och sträcka i km.");
+                Console.WriteLine("[3] Räkna ut area/volym på olika figurer, rektangel, triangel, cirkel, kub, pyramid, sfä");
+                Console.WriteLine("[4] Omvandla mellan Meter, Yard osv");
+                Console.WriteLine("[5] Räkna ut Ohmslag!");
+                Console.WriteLine("[6] Avsluta!");
+
+                do
+                {
+                    try
+                    {
+                        Console.Write("\nVälj ett alternativ: ");
+                        alternativ = Convert.ToInt32(Console.ReadLine());
+                        tryAgain = false;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        if (alternativ > 6 || alternativ <= 0)
+                        {
+                            tryAgain = false;
+                        }
+                        else
+                        {
+                            tryAgain = true;
+                        }
+                        Console.WriteLine(ex.Message);
+                        tryAgain = true;
+                    }
+                } while (tryAgain == true);
+
+
+                switch (alternativ)
+                {
+                    case 1:
+                        omvandlaFahrenheitCelsiusKelvin();
+                        break;
+
+                    case 2:
+                        hastighetTidStrack();
+                        break;
+                    case 3:
+                        areaVolym();
+                        break;
+                    case 4:
+                        convertUnit();
+                        break;
+                    case 5:
+                        NewOhmsLag();
+                        break;
+                }
+            } while (alternativ != 6);
+            Console.Clear();
+        }
+
+        static void hastighetTidStrack()
+        {
+            Calculator hastig = new Calculator();
+
+            bool tryAgain = false;
+            Console.WriteLine("Vad vill du räkna ut?");
+            Console.WriteLine("h: hastighet");
+            Console.WriteLine("t: tid");
+            Console.WriteLine("s: sträcka");
+            Console.Write("Enter h, t or s: ");
+            {
+                string answerOption = (Console.ReadLine()).ToUpper();
+                if (answerOption == "H" || answerOption == "T" || answerOption == "S")
+                {
+                    tryAgain = false;
+                    switch (answerOption)
+                    {
+                        case "H":
+                            hastig.hastighet();
+                            break;
+                        case "T":
+                            hastig.tid();
+                            break;
+                        case "S":
+                            hastig.stracka();
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid answer. Please enter h, t or s.");
+                    tryAgain = true;
+                }
+
+            } while (tryAgain == true) ;
+        }
+
+        static void omvandlaFahrenheitCelsiusKelvin()
+        {
+            Temperature temperature = new Temperature();
+            bool tryAgain = false;
+            Console.WriteLine("What do you want to convert?");
+            Console.WriteLine("c: celsius");
+            Console.WriteLine("k: kelvin");
+            Console.WriteLine("f: fahrenheit");
+            Console.Write("Enter c, k or f: ");
+            do
+            {
+                string answerOption = (Console.ReadLine()).ToLower();
+                if (answerOption == "c" || answerOption == "k" || answerOption == "f")
+                {
+                    tryAgain = false;
+                    switch (answerOption)
+                    {
+                        case "c":
+                            temperature.cel();
+                            break;
+                        case "k":
+                            temperature.kel();
+                            break;
+                        case "f":
+                            temperature.fahren();
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ogiltigt, försök skriv c, k eller f.");
+                    tryAgain = true;
+                }
+
+            } while (tryAgain == true);
+        }
+
+        static void areaVolym()
+        {
+            Figure f1 = new Figure();
+            bool tryAgain = false;
+            Console.WriteLine("Hej skriv vad för figure du vill räkna ut? skriv 'r' för rektangle,'t' för triangle, 'c' för cirkel,'k' för kub, 'p'för pyramid och 's' för sfär.");
+            do
+            {
+                string choice = (Console.ReadLine()).ToLower();
+                if (choice == "r" || choice == "t" || choice == "c" || choice == "k" || choice == "p" || choice == "s")
+                {
+                    tryAgain = false;
+                    switch (choice)
+                    {
+                        case "t":
+                            f1.triangel();
+                            break;
+                        case "r":
+                            f1.rektangel();
+                            break;
+                        case "c":
+                            f1.cirkel();
+                            break;
+                        case "k":
+                            f1.kub();
+                            break;
+                        case "p":
+                            f1.pyramid();
+                            break;
+                        case "s":
+                            f1.sfar();
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ogiltigt, försök skriv r, t or c.");
+                    tryAgain = true;
+                }
+
+            } while (tryAgain == true);
+        }
+        static void convertUnit()
+        {
+            LenghtUnit inputUnit = new LenghtUnit();
+            LenghtUnit outputUnit = new LenghtUnit();
+            Boolean correct = true;
+            do
+            {
+                do
+                {
+                    try
+                    {
+                        Console.WriteLine("Hej skriv enheten du vill byta ifrån? skriv T för tum, C för cm, Y för yard, M för meter, F för fot :) ");
+                        char input = char.ToUpper(Convert.ToChar(Console.ReadLine()));
+                        inputUnit.InputUnit = input;
+                        correct = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        correct = false;
+
+                    }
+                } while (correct == false);
+
+                if (inputUnit.InputUnit == 'T' || inputUnit.InputUnit == 'C' || inputUnit.InputUnit == 'Y' || inputUnit.InputUnit == 'M' || inputUnit.InputUnit == 'F')
+                {
+                    correct = true;
+                }
+                else
+                {
+                    correct = false;
+                }
+            } while (correct == false);
+
+            if (inputUnit.InputUnit == 'T')
+            {
+                inputUnit.TumMetod();
+            }
+            if (inputUnit.InputUnit == 'C')
+            {
+                inputUnit.CmMetod();
+            }
+            if (inputUnit.InputUnit == 'Y')
+            {
+                inputUnit.YardMetod();
+            }
+            if (inputUnit.InputUnit == 'M')
+            {
+                inputUnit.MeterMetod();
+            }
+            if (inputUnit.InputUnit == 'F')
+            {
+                inputUnit.FotMetod();
+            }
+
+        }
+        public static void NewOhmsLag()
+        {
+            Ohmslag ohmslag = new Ohmslag();
+            Boolean correct = false;
+            char choice = ' ';
+            do
+            {
+                do
+                {
+                    try
+                    {
+                        Console.WriteLine("Vad vill du räkna ut? skriv U för späning R för resistans och I för ström");
+                        choice = Convert.ToChar(Console.ReadLine());
+                        choice = char.ToUpper(choice);
+                        correct = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        correct = false;
+                    }
+                } while (correct == false);
+
+                if ((choice == 'U' || choice == 'R' || choice == 'I'))
+                {
+                    correct = true;
+                }
+                else
+                {
+                    correct = false;
+                }
+            } while (correct == false);
+
+            if (choice == 'U')
+            {
+                ohmslag.GetSpäning();
+            }
+            if (choice == 'I')
+            {
+                ohmslag.GetStröm();
+            }
+            if (choice == 'R')
+            {
+                ohmslag.GetResistance();
+            }
+
+        }
+    }
+}
+
+
