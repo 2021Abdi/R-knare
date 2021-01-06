@@ -6,7 +6,7 @@ class Temperature
     public double Kelvin;
     public double Fahrenheit;
 
-    public void cel()
+    public void Cel()
     {
         Boolean tryAgain;
         do
@@ -26,7 +26,7 @@ class Temperature
             }
         } while (tryAgain == true);
     }
-    public void kel()
+    public void Kel()
     {
         Boolean tryAgain;
         do
@@ -47,7 +47,7 @@ class Temperature
             }
         } while (tryAgain == true);
     }
-    public void fahren()
+    public void Fahren()
     {
         Boolean tryAgain;
 
