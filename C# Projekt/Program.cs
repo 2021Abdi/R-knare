@@ -87,13 +87,13 @@ namespace p
                     switch (answerOption)
                     {
                         case "H":
-                            hastig.hastighet();
+                            hastig.Hastighet();
                             break;
                         case "T":
-                            hastig.tid();
+                            hastig.Tid();
                             break;
                         case "S":
-                            hastig.stracka();
+                            hastig.Stracka();
                             break;
                     }
                 }
@@ -124,13 +124,13 @@ namespace p
                     switch (answerOption)
                     {
                         case "c":
-                            temperature.cel();
+                            temperature.Cel();
                             break;
                         case "k":
-                            temperature.kel();
+                            temperature.Kel();
                             break;
                         case "f":
-                            temperature.fahren();
+                            temperature.Fahren();
                             break;
                     }
                 }
@@ -157,22 +157,22 @@ namespace p
                     switch (choice)
                     {
                         case "t":
-                            f1.triangel();
+                            f1.Triangel();
                             break;
                         case "r":
-                            f1.rektangel();
+                            f1.Rektangel();
                             break;
                         case "c":
-                            f1.cirkel();
+                            f1.Cirkel();
                             break;
                         case "k":
-                            f1.kub();
+                            f1.Kub();
                             break;
                         case "p":
-                            f1.pyramid();
+                            f1.Pyramid();
                             break;
                         case "s":
-                            f1.sfar();
+                            f1.Sfar();
                             break;
                     }
                 }
