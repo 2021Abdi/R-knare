@@ -8,7 +8,7 @@ namespace p
         public double Tid { get; set; }
         public double Stracka { get; set; }
 
-        public void hastighet()
+        public void Hastighet()
         {
             Boolean tryAgain;
             do
@@ -42,7 +42,7 @@ namespace p
                 }
             } while (tryAgain == true);
         }
-        public void tid()
+        public void Tid()
         {
             Boolean tryAgain;
             do
@@ -76,7 +76,7 @@ namespace p
                 }
             } while (tryAgain == true);
         }
-        public void stracka()
+        public void Stracka()
         {
             Boolean tryAgain;
             do
