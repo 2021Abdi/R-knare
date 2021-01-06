@@ -9,7 +9,7 @@ class Figure
     public Boolean tryAgain;
 
 
-    public void rektangel()
+    public void Rektangel()
     {
         do
         {
@@ -33,7 +33,7 @@ class Figure
 
 
     }
-    public void triangel()
+    public void Triangel()
     {
         do
         {
@@ -54,7 +54,7 @@ class Figure
             }
         } while (tryAgain == true);
     }
-    public void cirkel()
+    public void Cirkel()
     {
         do
         {
@@ -73,7 +73,7 @@ class Figure
         } while (tryAgain == true);
     }
 
-    public void kub()
+    public void Kub()
     {
         do
         {
@@ -96,7 +96,7 @@ class Figure
         } while (tryAgain == true);
     }
 
-    public void pyramid()
+    public void Pyramid()
     {
         do
         {
@@ -120,7 +120,7 @@ class Figure
         } while (tryAgain == true);
     }
 
-    public void sfar()
+    public void Sfar()
     {
         do
         {
