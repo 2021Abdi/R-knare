@@ -87,13 +87,13 @@ namespace p
                     switch (answerOption)
                     {
                         case "H":
-                            hastig.Hastighet();
+                            hastig.velocity();
                             break;
                         case "T":
-                            hastig.Tid();
+                            hastig.Time();
                             break;
                         case "S":
-                            hastig.Stracka();
+                            hastig.Distance();
                             break;
                     }
                 }
